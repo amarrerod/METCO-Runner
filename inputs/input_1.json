@@ -1,0 +1,19 @@
+{
+    "experiments": [
+        {
+            "problem": {
+                "name": "Rastrigin",
+                "args": [30]
+            },
+            "algorithm": {
+                "name": "MOEA/D",
+                "args": [20, 5, 0.5, 0.5]
+            },
+            "reps": 1,
+            "args": {
+                "printer": "PlainText",
+                "plugin_path": "."
+            }
+        }
+    ]
+}

@@ -5,4 +5,3 @@ nose
 coverage
 pypi-publisher
 dataclasses
-unittest

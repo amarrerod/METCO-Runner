@@ -1,0 +1,8 @@
+EXPERIMENTS = "experiments"
+PROBLEM = "problem"
+ALGORITHM = "algorithm"
+REPS = "reps"
+ARGS = "args"
+PRINTER = "printer"
+PLUGIN_PATH = "plugin_path"
+NAME = "name"
