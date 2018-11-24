@@ -1,7 +1,7 @@
 from dataclasses import dataclass
 from metrunner.algorithm import Algorithm
 from metrunner.problem import Problem
-from termcolor import colored, cprint
+from termcolor import cprint
 
 @dataclass(frozen=True)
 class Experiment:

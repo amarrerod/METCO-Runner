@@ -1,11 +1,12 @@
-# Config file for automatic testing at travis-ci.org
-
 language: python
 python:
-  - 3.6
-
-# Command to install dependencies, e.g. pip install -r requirements.txt --use-mirrors
+- 3.6
 install: pip install -r requirements.txt
-
-# Command to run tests, e.g. python setup.py test
 script: python -m unittest discover tests/
+after_success:
+- coverage run -m unittest discover tests/
+- coverage xml
+- python-codacy-coverage -r coverage.xml
+env:
+  matrix:
+    secure: nuBv9wGQOaFDw1FDXKi5h0r/6JLNtiyfQ5+jNY5VLyz4ecUjLDa8VgL/JdFdaEULzZXRNZAFMOTkgbHCbYGzLjJ2HktFeWq/3tGZ9PHUVrQDTg1l0KC2ne4DjFZdLDg6YEz0GTZooavEAzRIr2CiM+ehLwfQThaOYySCwLROR04fRf9EWJrnFm6G5nUdRU+SB1DyB8IpImvH86V/1KRaXsE1NcqjPZldWz847NXm7OLsvWTkP1eiDlKlnwJHypiU6jEaE4wKEzzJH9mNWk7RmT4pgHjWOkMypjoNJ7CL8D8rFdVOgfEp1G1larnez6pdfwf59LHOIzzg78mFyIURuJ9GjgdPjkC09Y1AzTek0gUxs7IA3MVF5WycEdA4pm2r+aMhqUF3EK4Y8MnVYPulCAlmiSb6YfjKw/P0XxRT6/VXfVyv7gpbtPis2eshrA2o8zEz/S9U7Y3Jojlc8oXlytgLOu1rj7XtrwU74KH3zyzEeg8xYTMAIiEM0zc4xv7N9+Rggj7kjaM7wm5EnVVOZ1/JRm9+iteD+7DeC1LodXtpzWzPpQYR5QZ90AFqS70B2wmNA5tWp+pBysx0guEVcn5UKgFHZ0ExHRK/Bu7zZhmGk1Y763IVKhXohbesudAM4wwzjX7XYIWiRwhyNbfJkFl6m1oeyx5Y1zyea6iwha0=

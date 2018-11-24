@@ -6,3 +6,4 @@ coverage
 pypi-publisher
 dataclasses
 termcolor
+codacy-coverage

@@ -1,7 +1,7 @@
 from dataclasses import dataclass, field
 from typing import List
 from metrunner.experiment import Experiment
-from termcolor import colored, cprint
+from termcolor import cprint
 
 @dataclass
 class Runner:
