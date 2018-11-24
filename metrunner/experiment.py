@@ -8,3 +8,9 @@ class Experiment:
     problem: Problem
     args: dict
     reps: int = 1
+
+    def execute(self):
+        for i in range(self.reps):
+            print(f"Repetition # {i}")
+            print(self.algorithm)
+            print(self.problem)
