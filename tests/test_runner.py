@@ -12,3 +12,6 @@ class TestRunner(unittest.TestCase):
 
     def test_runner_exps(self):
         self.assertEqual(len(self.exps), len(self.runner.experiments))
+
+    def test_runner_run_all(self):
+        self.assertTrue(self.runner.run_all())

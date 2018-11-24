@@ -1,6 +1,7 @@
 from dataclasses import dataclass
 from metrunner.algorithm import Algorithm
 from metrunner.problem import Problem
+from termcolor import colored, cprint
 
 @dataclass(frozen=True)
 class Experiment:
@@ -11,6 +12,8 @@ class Experiment:
 
     def execute(self):
         for i in range(self.reps):
-            print(f"Repetition # {i}")
             print(self.algorithm)
             print(self.problem)
+            cprint(f"Repetition #{i} of the experiment {self.algorithm.name}"
+                   f"_{self.problem.name} finished", "green")
+            return True

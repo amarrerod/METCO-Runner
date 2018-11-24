@@ -3,6 +3,7 @@ from metrunner.experiment import Experiment
 from metrunner.problem import Problem
 from metrunner.algorithm import Algorithm
 
+
 class TestExperiment(unittest.TestCase):
 
     def setUp(self):
@@ -27,3 +28,5 @@ class TestExperiment(unittest.TestCase):
     def test_experiment_args(self):
         self.assertDictEqual(self.args, self.exp.args)
 
+    def test_experiment_exec(self):
+        self.assertTrue(self.exp.execute())
