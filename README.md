@@ -1,7 +1,10 @@
 METCO-Runner
 ===============================
 
+[![Build Status](https://travis-ci.org/marreA/METCO-Runner.svg?branch=master)](https://travis-ci.org/marreA/METCO-Runner)
+
 version number: 0.0.1
+
 author: Alejandro Marrero
 
 Overview
