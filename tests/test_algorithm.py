@@ -1,17 +1,21 @@
 # Sample Test passing with nose and pytest
 from metrunner.algorithm import Algorithm
-
-empty_params = Algorithm("MOEA/D", [])
-params = [5, 200, 5]
-algo = Algorithm("MOEA/D", params)
-
-def test_pass():
-    assert True, "dummy sample test"
+import unittest
 
 
-def test_algorithm_name():
-    assert "MOEA/D", empty_params.name
+class TestAlgorithm(unittest.TestCase):
 
+    def setUp(self):
+        self.name = "MOEA/D"
+        self.args = [200, 5, 6]
+        self.algo = Algorithm(self.name, self.args)
 
-def test_algorithm_params():
-      assert params, algo.params
+    def test_algorithm_name(self):
+        self.assertEqual(self.name, self.algo.name)
+
+    def test_algorithm_args(self):
+        self.assertEqual(len(self.args), len(self.algo.args))
+
+    def test_algorithm_args_equals(self):
+        for i in range(len(self.args)):
+            self.assertEqual(self.args[i], self.algo.args[i])
