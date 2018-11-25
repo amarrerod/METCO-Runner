@@ -6,21 +6,20 @@
                 "args": ["30"]
             },
             "algorithm": {
-                "name": "MOEA_D",
-                "args": ["20", "5", "0.5", "0.5"]
+                "name": "OBL_CPSO",
+                "args": ["0.5", "30"]
             },
-            "mutation": "Mutate_Uniform_All",
-            "crossover": "Crossover_Uniform",
-            "local_search": "NoOp",
             "reps": 1,
             "args": {
                 "printer": "PlainText",
                 "plugin_path": "/home/marrero/software-metco/oplink/algorithms/team/src/skeleton/main",
                 "output_path": "/home/marrero/experiments",
-                "output_file": "MOEAD_Rastrigin",
+                "output_file": "OBLCPSO_Rastrigin",
                 "stop": "EVALUATIONS",
                 "stop_value": "1000",
-                "print_period": "100"
+                "print_period": "100",
+                "external_file": "0",
+                "local_search": "NoOp"
             }
         }
     ]

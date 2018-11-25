@@ -6,7 +6,7 @@ from metrunner.parser import input_parser
 class TestRunner(unittest.TestCase):
 
     def setUp(self):
-        self.input_file = "./inputs/input_1.json"
+        self.input_file = "./inputs/input_2.json"
         self.exps = input_parser(self.input_file)
         self.runner = Runner(self.exps)
 
