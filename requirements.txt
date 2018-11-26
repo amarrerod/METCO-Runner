@@ -1,6 +1,6 @@
 # Dev/Deployment
 sphinx==1.8.2
-sphinx_rtd_theme
+sphinx_rtd_theme==0.4.2
 nose
 coverage
 pypi-publisher
