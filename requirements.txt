@@ -1,5 +1,5 @@
 # Dev/Deployment
-sphinx
+sphinx==1.8.2
 sphinx_rtd_theme
 nose
 coverage
