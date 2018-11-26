@@ -20,14 +20,14 @@ class Experiment:
                     os.mkdir(self.args[OUTPUT_PATH])
                 file = f"{self.args[OUTPUT_FILE]}_{i}.rs"
                 run_cmd = self.create_command([METCO_SEQ, self.args[OUTPUT_PATH],
-                                    self.args[PLUGIN_PATH], self.args[PRINTER],
-                                    file, self.algorithm.name,
-                                    self.problem.name, self.args[STOP],
-                                    self.args[STOP_VALUE],
-                                    self.args[PRINT_PERIOD], self.args[EXTERNAL_FILE], " "])
+                                               self.args[PLUGIN_PATH], self.args[PRINTER],
+                                               file, self.algorithm.name,
+                                               self.problem.name, self.args[STOP],
+                                               self.args[STOP_VALUE],
+                                               self.args[PRINT_PERIOD], self.args[EXTERNAL_FILE], " "])
                 if int(self.args[EXTERNAL_FILE] != NOT_EXTERNAL_FILE):
                     pass
-                run_cmd += self.create_command(self.algorithm.args)
+                run_cmd += ' '.join(self.algorithm.args)
                 if self.problem.args:
                     run_cmd += self.create_command([" ", PROBLEM_ESCAPE, " "])
                     run_cmd += self.create_command(self.problem.args)
@@ -39,17 +39,18 @@ class Experiment:
                 if LOCAL_SEARCH in self.args:
                     run_cmd += self.create_command([LS_ESCAPE, " "])
                     run_cmd += self.args[LOCAL_SEARCH]
+                    run_cmd += " "
                 if MULTIOBJS in self.args:
                     run_cmd += self.create_command(MUTATION_ESCAPE)
                     run_cmd += self.create_command(self.args[MULTIOBJS])
                 if DECOMPOSITION in self.args:
-                    run_cmd += self.create_command(DECOM_ESCAPE)
-                    run_cmd += self.create_command(self.args[DECOMPOSITION])
-                print(run_cmd)
+                    run_cmd += self.create_command([DECOM_ESCAPE, " "])
+                    run_cmd += self.args[DECOMPOSITION]
+                print(f"About to run: {run_cmd}")
                 result = subprocess.run(run_cmd, shell=True)
                 if result.returncode == 0:
                     cprint(f"Repetition #{i} of the experiment {self.algorithm.name}"
-                       f"_{self.problem.name} finished", "green")
+                           f"_{self.problem.name} finished", "green")
                 else:
                     cprint(f"Repetition #{i} of the experiment {self.algorithm.name}"
                            f" {self.problem.name} finished wrong. Aborting experiment", "red")
@@ -67,5 +68,6 @@ class Experiment:
         else:
             return False
 
-    def create_command(self, params):
+    @staticmethod
+    def create_command(params):
         return " ".join(params)

@@ -2,25 +2,30 @@
     "experiments": [
         {
             "problem": {
-                "name": "Rastrigin",
-                "args": ["30"]
+                "name": "MenuPlanning",
+                "args": ["5",
+                    "/home/marrero/software-metco/oplink/algorithms/team/src/plugins/problems/MenuPlanning/databaseMenus/primerosplatos.txt",
+                    "/home/marrero/software-metco/oplink/algorithms/team/src/plugins/problems/MenuPlanning/databaseMenus/segundosplatos.txt",
+                    "/home/marrero/software-metco/oplink/algorithms/team/src/plugins/problems/MenuPlanning/databaseMenus/postres.txt"]
             },
             "algorithm": {
                 "name": "MOEA_D",
-                "args": ["20", "5", "0.5", "0.5"]
+                "args": ["150", "50", "0.5", "0.5", "13", "0"]
             },
             "mutation": "Mutate_Uniform_All",
             "crossover": "Crossover_Uniform",
-            "local_search": "NoOp",
             "reps": 1,
             "args": {
                 "printer": "PlainText",
                 "plugin_path": "/home/marrero/software-metco/oplink/algorithms/team/src/skeleton/main",
                 "output_path": "/home/marrero/experiments",
-                "output_file": "MOEAD_Rastrigin",
+                "output_file": "MOEAD_MenuPlanning",
                 "stop": "EVALUATIONS",
-                "stop_value": "1000",
-                "print_period": "100"
+                "stop_value": "400000000",
+                "print_period": "100",
+                "external_file": "0",
+                "local_search": "NoOp",
+                "decomposition": "Tchebycheff"
             }
         }
     ]
